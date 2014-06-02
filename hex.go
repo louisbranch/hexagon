@@ -5,16 +5,16 @@ type Hex struct {
   x, y, z int
 }
 
+// Creates a hexagon cubic coordinates from axial coordinates
+func NewHex(r, q int) *Hex {
+  return &Hex{ x: q, z: r, y: -q - r }
+}
+
 // Converts hexagon cubic coordinates to axial ones
 func (h *Hex) AxialCoordinates() (r, q int) {
   r = h.z
   q = h.x
   return
-}
-
-// Creates a hexagon cubic coordinates from axial coordinates
-func NewFromAxialCoordinates(r, q int) *Hex {
-  return &Hex{ x: q, z: r, y: -q-r }
 }
 
 // Finds all six adjacent cubic coordinates

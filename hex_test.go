@@ -2,20 +2,9 @@ package hexagon
 
 import "testing"
 
-func TestAxialCoordinates(t *testing.T) {
-  h := Hex{x: 0, y: 1, z: -1}
-  r, q := h.AxialCoordinates()
-  if q != h.x {
-    t.Error("Expected q to equal", h.x ,"got", q)
-  }
-  if r != h.z {
-    t.Error("Expected r to equal", h.z, "got", r)
-  }
-}
-
-func TestNewFromAxialCoordinates(t *testing.T) {
+func TestNewHex(t *testing.T) {
   r, q := -1, 0
-  h := NewFromAxialCoordinates(r, q)
+  h := NewHex(r, q)
   if h.x != q {
     t.Error("Expected x to equal", q ,"got", h.x)
   }
@@ -24,6 +13,17 @@ func TestNewFromAxialCoordinates(t *testing.T) {
   }
   if h.y != 1 {
     t.Error("Expected y to equal", 1 ,"got", h.y)
+  }
+}
+
+func TestAxialCoordinates(t *testing.T) {
+  h := Hex{x: 0, y: 1, z: -1}
+  r, q := h.AxialCoordinates()
+  if q != h.x {
+    t.Error("Expected q to equal", h.x ,"got", q)
+  }
+  if r != h.z {
+    t.Error("Expected r to equal", h.z, "got", r)
   }
 }
 
